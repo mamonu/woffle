@@ -4,13 +4,13 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Ev&#039;ry Day I&#039;m Woffling!</title>
+        <title>woffle</title>
 
         <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Fira+Mono" rel="stylesheet">
         <link rel="stylesheet" href="https://karetsu.github.io/woffle/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://karetsu.github.io/woffle/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://karetsu.github.io/woffle/css/github.css">
+        <link rel="stylesheet" href="https://karetsu.github.io/woffle/css/dracula.css">
         <link rel="stylesheet" href="https://karetsu.github.io/woffle/css/main.css">
     </head>
     <body>
@@ -18,9 +18,9 @@
         <header class="site-header">
             <div class="site-branding">
                 <h1 class="site-name">
-                    <a href="https://karetsu.github.io/woffle" >Ev&#039;ry Day I&#039;m Woffling!</a>&nbsp;&nbsp;<i class="fa fa-american-sign-language-interpreting"></i>
+                    <a href="https://karetsu.github.io/woffle" >woffle</a>&nbsp;&nbsp;<i class="fa fa-comments"></i>
                 </h1>
-                <h2 class="site-description">An NLP meta-API for dummies</h2>
+                <h2 class="site-description">An NLP meta-API for dummies, by dummies</h2>
             </div>
 
             <div class="button-line">
@@ -43,21 +43,15 @@
 
                                     <nav id="sidebar" class="col-sm-3 col-lg-2 collapse in" role="navigation">
                                                     <p class="text-muted">
-                                Main documentation
+                                Home
                             </p>
 
                             <ul class="nav nav-pills nav-stacked">
                                                                     <li class="active">
                                         <a href="https://karetsu.github.io/woffle/index.html">
-                                            <i class='fa fa-angle-right'></i> Home
+                                            <i class='fa fa-angle-right'></i> Welcome
                                         </a>
                                     </li>
-                                                            </ul>
-                                                    <p class="text-muted">
-                                Frequently Asked Questions
-                            </p>
-
-                            <ul class="nav nav-pills nav-stacked">
                                                                     <li class="">
                                         <a href="faq.html">
                                             <i class='fa fa-angle-right'></i> FAQ
@@ -65,27 +59,17 @@
                                     </li>
                                                             </ul>
                                                     <p class="text-muted">
-                                Advanced topics
+                                Advanced
                             </p>
 
                             <ul class="nav nav-pills nav-stacked">
-                                                                    <li class="">
-                                        <a href="customfuncs.html">
-                                            <i class='fa fa-angle-right'></i> Changing the defaults
-                                        </a>
-                                    </li>
-                                                                    <li class="">
-                                        <a href="custommodel.html">
-                                            <i class='fa fa-angle-right'></i> Using a custom model
-                                        </a>
-                                    </li>
                                                             </ul>
                         
                     </nav>
 
                 
                 <section class="col-sm-9 col-lg-10 content">
-                    <h2 id="welcome">Welcome</h2>
+                    <h1 id="welcome">Welcome</h1>
 <p>Please note that this is an active project so some of the instructions are
 incomplete and may not yet work. If you find one and there is not an issue
 already raised for it then please do so.</p>
@@ -94,13 +78,13 @@ already raised for it then please do so.</p>
 common interface using each of the most popular currently available tools. This
 includes</p>
 <ul>
-<li><a href="https://spacy.io">spaCy</a></li>
-<li><a href="https://github.com/facebookresearch/fasttext">fastText</a></li>
-<li><a href="https://github.com/zolandoresearch/flair">flair</a></li>
+<li>spaCy</li>
+<li>fastText</li>
+<li>flair</li>
 <li>others coming soon</li>
 </ul>
-<p>The project was borne out of frustrations in trying to remember all of the
-methods and attributes of each of these different programs. I intend to have the
+<p>The project was borne out of frustrations in trying to tie together all of the
+methods and attributes of each of popular NLP programs. I intend to have the
 program broken down into composable tasks where each task takes some 'sensible'
 default operations and when you import a specific part of the tool then it only
 exposes that one thing and these tasks will be separated by whether they are
@@ -111,41 +95,44 @@ deterministic processing or whether the output is probabilistically generated
 <li><strong>parsing</strong>
 including replacement of a list of regex strings defined in a configuration file</li>
 <li><strong>embedding</strong>
-not only generating numeric vectors from your text using fasttext, spacy's
-gloVe implementation and similar but I envision that this should also include
-tasks such as topic modelling and semantic analysis purely because they are
-mappings from your text into some kind of representation space</li>
+not only generating numeric vectors from your text using
+fasttext, spacy's gloVe implementation and similar but I envision that this
+should also include tasks such as topic modelling and semantic analysis
+purely because they are mappings from your text into some kind of
+representation space</li>
 <li><strong>clustering</strong>
 deterministic (e.g. Ward linkage) clustering and proabilitistic clustering
 will be included</li>
 <li><strong>selection</strong>
-the ability to replace the content of a cluster with a representative 'label',
-in optimus this is based on functions of the cluster based on decisions on the
-content of the cluster but this could be as simple as replacing the the
-cluster with its sentiment score</li>
+the ability to replace the content of a cluster
+with a representative 'label', in optimus this is based on functions of the
+cluster based on decisions on the content of the cluster but this could be as
+simple as replacing the the cluster with its sentiment score</li>
 </ul>
 <p>These functions will be called the same thing regardless of which back end you
 use and most importantly they will be composable so that you can chain
 deterministic and probabilistic functions together, where it makes sense.</p>
-<p>A type checking tool (<a href="https://pyre-check.org">pyre</a>) will be available to ensure
-that any custom pipelines have functions of the same type before the program
-runs to prevent any late exceptions being raised.</p>
+<p>A type checking tool (<a href="https://pyre-check.org">pyre</a>) will be available to
+ensure that any custom pipelines have functions of the same type before the
+program runs to prevent any late exceptions being raised.</p>
 <h2 id="installation">Installation</h2>
 <p>This program is intended for use on modern linux and macOS operating systems. If
 you wish to install it then perform the following actions to get a working
 environment including an installation of fasttext, flair and spacy.</p>
 <pre><code class="language-sh">git clone https://github.com/karetsu/woffle
 cd woffle
-make</code></pre>
-<p>If you also wish to download the <code>wiki.en.zip</code> vectors for fasttext then also do</p>
-<pre><code class="language-sh">make ftmodel</code></pre>
-<p>and if you do not have a CUDA enabled GPU then you may wish to use the flair
-models which are optimised for running on CPUs instead</p>
-<pre><code class="language-sh">make flair-fast</code></pre>
+make
+
+# If you also wish to download the `wiki.en.zip` vectors for fasttext then also do
+make ftmodel
+
+# and if you do not have a CUDA enabled GPU then you may wish to use the flair
+#models which are optimised for running on CPUs instead
+make flair-fast</code></pre>
 <h2 id="usage">Usage</h2>
 <p>This program is intended to give you a common toolkit without needing to know
 the model specific commands to perform the tasks. In order to use the program it
-is currently recommended to do a</p>
+is currently recommended to</p>
 <pre><code class="language-sh">git clone https://github.com/karetsu/woffle myProjectName</code></pre>
 <p>so that it provides a working directory for specific projects. Included is an
 example of how you would use the tool to do some simple parsing of an example
@@ -166,9 +153,8 @@ cleaned = [clean(line) for line in text]
 
 for i, j in zip(text, cleaned):
     print(f"{i} -&gt; {j}")</code></pre>
-<p>For a more complex example which also incorporates text embedding, clustering
-and relabelling clusters in a fashion similar to
-<a href="https://github.com/datasciencecampus/optimus">optimus</a> see <code>main.py</code>.</p>
+<p>For more detailed and complex examples please see
+<a href="https://github.com/karetsu/woffle/tree/master/examples"><code>examples</code></a>.</p>
                 </section>
 
             </div>
@@ -179,7 +165,7 @@ and relabelling clusters in a fashion similar to
             <div class="bottom-panel">
                 <div class="text-center">
             <span>
-                                    Made by karetsu | Compiled with CousCous
+                                    Made by karetsu  &gt;&gt;=  Built by Couscous
                                                 </span>
                 </div><!-- text-center -->
             </div><!-- bottom-panel -->
